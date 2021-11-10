@@ -1,0 +1,5 @@
+- Corrección automatica practicas de codigo
+- Deteccion automatica de copia
+- Se pueden subir borradores
+- Lenguaje Java
+- Listado de notas para los profesores
