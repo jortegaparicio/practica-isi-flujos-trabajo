@@ -1,5 +1,74 @@
-- Corrección automatica practicas de codigo
-- Deteccion automatica de copia
-- Se pueden subir borradores
-- Lenguaje Java
-- Listado de notas para los profesores
+
+TRABAJO ISI:
+
+Hay que tener un repositorio en GitLsb practica-isi con todos los miembros del grupo + pedro
+hay que tener inicialemente un par de ficheros: un fichero requirements.txt y otro members.txt
+
+Requisitos (QUÉ es lo que queremos que haga nuestro sistema)
+- Las correciones de las practicas se harán de forma automática
+- Detección de plagios en las entregas
+	Como un profesor
+	Para que la evaluación que yo realice sea objetiva
+	Quiero que cuando se entregue una práctica se detecte si se ha copiado con otras practicas.
+
+	* Una forma sugerida para hacer esto: mecanismo de deteccion de copias comparando commits de 
+	 practicas con "diff". Podemos hacer diff de todos los usuarios cada día, para ver si han estado 
+	 trabajando antes de entregar la practica o únicamente han hecho un commit para entregar la practica.
+	 
+- Como un alumno
+	Para que podemos saber si hemos aprobado o no la practica
+	Quiero tener una nota que me evalúe la practica
+	
+(Más requisitos funcionales: un alumno pueda estar solo en x numero de asignaturas...)
+
+- Como profesor
+	Para que la evaluación de la practica siga unos criterios
+	Quiero que la nota sea proporcional de algun modo al numero de test que pase esa entrega
+	
+- Como profesor
+	Para que pueda detecar alumnos que estan trabajando juntos dodnde uno hace las cosas y otro se copia
+	Quiero poder detectar para comparar similitudes entre las fases de las practicas.
+	
+- Como directivo de la compañia (o de la uni)
+	Para que los gobiernos no me puedan acusar de violentar la ley de privacidad
+	Quiero que un alumno solo pueda ver sus notas
+		
+- Como directivo de la compañia (o de la uni)
+	Para que los gobiernos no me puedan acusar de violentar la ley de privacidad
+	Quiero que un profesor solo pueda ver las notas de sus asignaturas (o los informes de plagios)
+	
+- Como profesor
+	Para que pueda realizar una evaluación óptima
+	Quiero que tenga en cuenta la calidad y limpieza del código
+	
+- Como profesor
+	Para que el alumno tenga feedback de la practica
+	Quiero que tenga un foro para comunicarse con el alumno.
+
+- Como alumno
+	Para que el alumno sepa como se soluciona la practica
+	Quiero tener acceso al código solucionado de la practica
+	
+- (tendremos muchos requisitos de este tipo)
+	Como profesor
+	Para que sea mas fácil de implementar las correcciones
+	Quiero que todas las practicas de una asignaturas tengan un nombre concreto...
+	
+
+Requisitos no funcionales: (Cómo lo hago?)
+- Que se use una base de datos
+- Usar GIT para entregar las practicas
+- Usar CI/CD de Gitlab
+- Tendremos que implementarlo con Java
+- Que el código esté bien escrito, con claridad y optimizados
+- También podemos hacer la deteccion de copia automatica con tests.
+- Podemos sacar la nota de la practica a partir de cuantos tests pasa la practica del alumno.
+
+
+lista de acrónimos:
+asignaturas
+entrega:
+alumnos...
+
+stakeholders: alumnos, profesores, dueño de la empresa (directivo de la compañia)... 
+
