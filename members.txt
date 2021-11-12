@@ -1,8 +1,7 @@
 # MIEMBROS DEL EQUIPO
 
-Juan Antonio Ortega Aparicio
 Belén Rosa Alonso
-Pablo Barquero Villanueva - Belén aceptar
+Pablo Barquero Villanueva
 César Borao Moratinos
 
 # MIEMBROS EXTERNOS
