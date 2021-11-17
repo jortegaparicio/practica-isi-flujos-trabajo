@@ -65,7 +65,7 @@ Requisitos no funcionales: (Cómo lo hago?)
 - Podemos sacar la nota de la practica a partir de cuantos tests pasa la practica del alumno.
 
 
-lista de acrónimos:
+lista de acrónimos (con wiki gitlab):
 asignaturas
 entrega:
 alumnos...
