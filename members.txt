@@ -5,7 +5,7 @@ Belén Rosa Alonso
 Pablo Barquero Villanueva
 César Borao Moratinos
 
-# MIEMBROS EXTERNOS
+## MIEMBROS EXTERNOS
 
 Grupo externo: Samuel Martin Ortega
 Grupo externo: Amelia Sánchez Aparicio 
