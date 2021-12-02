@@ -1,13 +1,15 @@
-package embotelladora;
 
-class NoSolution extends Exception {
+@SuppressWarnings("serial")
+class NoSolution extends Exception{
+	
 	String msg;
-
-	NoSolution(String str) {
+	
+	public NoSolution(String str) {
 		msg = str;
 	}
-
-	public String toString() {
-		return ("NoSolution: " + msg);
+	
+	public String toString(){
+		return ("NoSolution: " + msg) ;
 	}
+
 }

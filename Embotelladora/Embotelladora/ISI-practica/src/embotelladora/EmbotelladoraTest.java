@@ -1,17 +1,16 @@
-package embotelladora;
+import static org.junit.Assert.*;
+import org.junit.*;
+import java.util.*;
+import java.lang.Exception;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
-class EmbotelladoraTest {
+public class EmbotelladoraTest {
 
 	/*
 	 * CASO BASE
-	 * Se puede embotellar con una combinación de botellas grandes y pequeñas
+	 * Se puede embotellar con una combinacion de botellas grandes y pequenas
 	 */
 	@Test
-	void testCombinacion() {
+	public void testCombinacion() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, 8, 50);
@@ -19,142 +18,142 @@ class EmbotelladoraTest {
 			res = embotelladora.calculaBotellasPequenas(100, 8, 50);
 			assertEquals(10, res);
 		} catch (NoSolution e1) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		} catch (Exception e2) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		}
 	}
-	
+
 	/*
-	 * Se puede embotellar con una combinación de botellas grandes y pequeñas, pero
-	 * el numero de litros no es válido
+	 * Se puede embotellar con una combinacion de botellas grandes y pequenas, pero
+	 * el numero de litros no es valido
 	 */
 	@Test
-	void testLitrosInvalidos() {
+	public void testLitrosInvalidos() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, 8, 0);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 	/*
-	 * Se puede embotellar con una combinación de botellas grandes y pequeñas, y 
-	 * sólo con botellas grandes
+	 * Se puede embotellar con una combinacion de botellas grandes y pequenas, y
+	 * solo con botellas grandes
 	 */
 	@Test
-	void testCombinacionYBotellasGrandes() {
+	public void testCombinacionYBotellasGrandes() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, 6, 30);
 			assertEquals(0, res);
 		} catch (NoSolution e1) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		} catch (Exception e2) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		}
 	}
-	
+
 	/*
-	 * Se puede embotellar con una combinación de botellas grandes y pequeñas, y 
-	 * sólo con botellas pequeñas
+	 * Se puede embotellar con una combinacion de botellas grandes y pequenas, y
+	 * solo con botellas pequenas
 	 */
 	@Test
-	void testCombinacionYBotellasPequeñas() {
+	public void testCombinacionYBotellasPequenas() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, 2, 10);
 			assertEquals(0, res);
 		} catch (NoSolution e1) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		} catch (Exception e2) {
-			fail("No se esperaba excepción");
+			fail("No se esperaba excepcion");
 		}
 	}
-	
+
 	/*
-	 * Se puede embotellar con una combinación de botellas grandes y pequeñas, pero
+	 * Se puede embotellar con una combinacion de botellas grandes y pequenas, pero
 	 * el numero de litros es negativo
 	 */
 	@Test
-	void testLitrosNegativos() {
+	public void testLitrosNegativos() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, 8, -10);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 	/*
 	 * No tenemos suficientes botellas
 	 */
 	@Test
-	void testSinBotellas() {
+	public void testSinBotellas() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(4, 9, 50);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 	/*
-	 * El número de botellas que tenemos no es válido
+	 * El numero de botellas que tenemos no es valido
 	 */
 	@Test
-	void testBotellasNegativas() {
+	public void testBotellasNegativas() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(-1, -1, 10);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 	/*
-	 * El número de botellas grandes que tenemos no es válido
+	 * El numero de botellas grandes que tenemos no es valido
 	 */
 	@Test
-	void testBotellasGrandesNegativas() {
+	public void testBotellasGrandesNegativas() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(10, -1, 10);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 	/*
-	 * El número de botellas pequeñas que tenemos no es válido
+	 * El numero de botellas pequenas que tenemos no es valido
 	 */
 	@Test
-	void testBotellasPequeñasNegativas() {
+	public void testBotellasPequenasNegativas() {
 		Embotelladora embotelladora = new Embotelladora();
 		try {
 			int res = embotelladora.calculaBotellasPequenas(-1, 2, 10);
-			fail("Se espera una excepción");
+			fail("Se espera una excepcion");
 		} catch (NoSolution e1) {
 			assertTrue(true);
 		} catch(Exception e2) {
 			assertTrue(true);
 		}
 	}
-	
+
 }
