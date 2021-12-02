@@ -46,6 +46,5 @@ public class Embotelladora {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 }
