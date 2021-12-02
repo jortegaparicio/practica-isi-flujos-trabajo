@@ -14,7 +14,7 @@ public class Embotelladora {
 
 		int resto = 0;
 
-		if (total < 0 || pequenas < 0 || grandes < 0) {
+		if (total <= 0 || pequenas < 0 || grandes < 0) {
 			throw new NoSolution("Entries must be positive integers or zero");
 		}
 		
@@ -22,7 +22,7 @@ public class Embotelladora {
 			throw new NoSolution("Not enough bottles to pack the liquid");
 		}
 
-		if (total == 0 || total < grandes*5) {
+		if (total < grandes*5) {
 			return 0;
 		}
 
