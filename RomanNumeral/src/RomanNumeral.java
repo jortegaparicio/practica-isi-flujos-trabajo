@@ -134,6 +134,7 @@ public class RomanNumeral {
 	    int result = 0;
 	    int length = s.length();
 	    Map<Character, Integer> romanM = getRomaMap();
+	    s = s.toUpperCase();
 	    
 	    verifyRomanNumeral(s);
 	
@@ -169,7 +170,7 @@ public class RomanNumeral {
 	}
 
 	public static void main(String[] args) {
-	    System.out.println(RomanNumeral.convierte("III"));
+	    System.out.println(RomanNumeral.convierte("iii"));
 	    System.out.println(RomanNumeral.convierte("V"));
 	    System.out.println(RomanNumeral.convierte("XLV"));
 	    System.out.println(RomanNumeral.convierte("CDXCV"));
@@ -189,4 +190,5 @@ public class RomanNumeral {
 	}
 	
 }
+
 
