@@ -2,7 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
 
-public class BisiestosTest
+public class BisiestosTest{
 
 	private int year;
 	
@@ -66,6 +66,6 @@ public class BisiestosTest
 		}
 		fail ("IllegalArgument Exception expected");
    }
-
+}
 	
 	
