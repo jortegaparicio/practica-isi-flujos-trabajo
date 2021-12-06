@@ -5,7 +5,7 @@ public class Bisiestos {
 	// @return true si a es un a~no bisiesto
 	// false en caso contrario.
 	// @throws IllegalArgumentException si a no es un par ́ametro v ́alido.
-	public boolean esBisiesto(int a) throws IllegalArgumentException {
+	public static boolean esBisiesto(int a) throws IllegalArgumentException {
 		if(a==0) {
 			return true;
 		}
