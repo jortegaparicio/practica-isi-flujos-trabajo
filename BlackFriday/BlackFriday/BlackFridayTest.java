@@ -26,13 +26,15 @@ public class BlackFridayTest {
 		 * Caso precio original <0 siendo el día del black friday
 		 * 
 		 */
+		DescuentoBlackFriday descuentoblackfriday = new DescuentoBlackFriday();
 		cal.set(2021,10,29);
 	
 		try {
-			}catch (IllegalArgumentException e) {
+			double precionuevo = descuentoblackfriday.precioFinal(-100.0,80.0,cal);
+		}catch (IllegalArgumentException e) {
 				return;
-			}
-			fail ("IllegalArgument Exception expected");		
+		}
+		fail("IllegalArgument Exception expected");		
 	}
 	@Test
 	public void TFT() {
@@ -55,14 +57,17 @@ public class BlackFridayTest {
 		 * Caso descuento <0 siendo el día del black friday
 		 * 
 		 */
+		DescuentoBlackFriday descuentoblackfriday = new DescuentoBlackFriday();
 		cal.set(2021,10,29);
 	
 		try {
-			}catch (IllegalArgumentException e) {
-				return;
-			}
-			fail ("IllegalArgument Exception expected");		
+			double precionuevo = descuentoblackfriday.precioFinal(100.0,-80.0,cal);
+		}catch (IllegalArgumentException e) {
+			return;
+		}
+		fail("IllegalArgument Exception expected");		
 	}
+	
 	@Test
 	public void TTI() {
 		/*
@@ -71,7 +76,7 @@ public class BlackFridayTest {
 		 * 
 		 */
 		DescuentoBlackFriday descuentoblackfriday =new DescuentoBlackFriday();
-		cal.set(2021,10,29);
+		cal.set(2021,10,28);
 
 		double precionuevo = descuentoblackfriday.precioFinal(100.0,20.0,cal);
 		assertEquals(100.0,precionuevo,0.1);
