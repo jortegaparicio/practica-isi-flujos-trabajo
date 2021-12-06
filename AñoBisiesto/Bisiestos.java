@@ -6,7 +6,19 @@ public class Bisiestos {
 	// false en caso contrario.
 	// @throws IllegalArgumentException si a no es un par ́ametro v ́alido.
 	public boolean esBisiesto(int a) throws IllegalArgumentException {
-		return ((a%4 == 0) && ((a % 100 != 0) || (a % 400 == 0)));
+		if(a==0) {
+			return true;
+		}
+		
+		if (a<0) {
+			 throw new IllegalArgumentException("DescuentoBlackFriday.precioFinal");
+		}
+		
+		if((a%4 == 0) && ((a % 100 != 0) || (a % 400 == 0))) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }
