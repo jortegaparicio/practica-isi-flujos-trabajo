@@ -1,0 +1,7 @@
+INCIDENCIAS
+
+Método Año Bisiesto:
+ - Nombre de la clase es Bisiestos, no Bisiesto
+ - Nombre de la función es esBisiesto, no esAñoBisiesto
+ 
+ - Fallo en test de caso límite año 0 porque nuestro equipo lo considera un año válido bisiesto y vuestro equipo como año inválido.
