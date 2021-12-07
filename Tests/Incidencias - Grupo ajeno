@@ -1,10 +1,37 @@
 INCIDENCIAS
 
-Método Año Bisiesto:
+A continuación se documentan los fallos del SUT de un equipo externo al correr nuestros tests.
+
+SUT probado: https://gitlab.etsit.urjc.es/elenabal/practica-isi/-/tree/master/testing.
+
+
+1) MÉTODO AÑO BISIESTO:
+
  - Nombre de la clase es Bisiestos, no Bisiesto
  - Nombre de la función es esBisiesto, no esAñoBisiesto
  
  - Fallo en test de caso límite año 0 porque nuestro equipo lo considera un año válido bisiesto y vuestro equipo como año inválido.
+ 
+2) MÉTODO NÚMEROS ROMANOS:
 
-Método BlackFriday:
+ - Errores para poder ejecutar los tests:
+   - He tenido que cambiar en el fichero RomanNumeral el método "convertir" a "convierte" para que se cumpla la especificación que no da el método
+   
+ - Errores en los tests:
+   Fallan 8 de los 27 tests programados:
+   - Falla test 15 (CorrectSymbolsBreakRules_4), con entrada "CMDC".
+   - Falla test 19 (CorrectSymbolsBreakRules_8), con entrada "IM".
+   - Falla test 20 (CorrectSymbolsBreakRules_9), con entrada "XD".
+   - Falla test 21 (CorrectSymbolsBreakRules_10), con entrada "LC".
+   - Falla test 22(CorrectSymbolsBreakRules_11), con entrada "VD".
+   - Falla test 23 (CorrectSymbolsBreakRules_12), con entrada "LXL".
+   - Falla test 24 (CorrectSymbolsBreakRules_13), con entrada "CCM".
+   - Falla test 25 (CorrectSymbolsBreakRules_13), con entrada "XCD".
+   
+   El SUT no pasa los tests que contemplan símbolos romanos a priori válidos, pero que incumplen las reglas específicas de los números romanos.
+   
+
+4) MÉTODO BLACK FRIDAY:
  - El mes==11 está mal, porque en java los meses empiezan en 0, por lo que Noviembre es el 10.
+ 
+
