@@ -5,3 +5,6 @@ Método Año Bisiesto:
  - Nombre de la función es esBisiesto, no esAñoBisiesto
  
  - Fallo en test de caso límite año 0 porque nuestro equipo lo considera un año válido bisiesto y vuestro equipo como año inválido.
+
+Método BlackFriday:
+ - El mes==11 está mal, porque en java los meses empiezan en 0, por lo que Noviembre es el 10.
