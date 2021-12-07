@@ -14,43 +14,43 @@ public class RomanNumeral {
     private static void verifyRepetedChar(String s) {
     	
         Pattern pat = Pattern.compile(".*I{4,}.*");
-        Matcher mat = pat.matcher(s);                                                                           
+        Matcher mat = pat.matcher(s);                                                   
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
         
         pat = Pattern.compile("(.*V.*){2,}");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                                          
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
         
         pat = Pattern.compile(".*X{4,}.*");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                   
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
         
         pat = Pattern.compile("(.*L.*){2,}");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                                              
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
         
         pat = Pattern.compile(".*C{4,}.*");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                                              
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
         
         pat = Pattern.compile("(.*D.*){2,}");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                                             
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
     	
         pat = Pattern.compile(".*M{4,}.*");
-        mat = pat.matcher(s);                                                                           
+        mat = pat.matcher(s);                                                             
         if (mat.matches()) {
         	throw new IllegalArgumentException();
         }
@@ -77,7 +77,7 @@ public class RomanNumeral {
         int currentValue = romanM.get(s.charAt(pos));
 
     	if (s.charAt(pos) == 'I' || s.charAt(pos) == 'X' || s.charAt(pos) == 'C' || s.charAt(pos) == 'M' ) { 
-    		String sub = s.substring(pos+1); // Dividimos la cadena a partir del siguiente elemento
+    		String sub = s.substring(pos+1);
     		if(sub.length()>1) {
     			if(currentValue <= romanM.get(sub.charAt(1))) {
     				throw new IllegalArgumentException();
@@ -141,9 +141,12 @@ public class RomanNumeral {
 		for(int i = 0; i < s.length() - 1; i++) {
 	        if (romanM.containsKey(s.charAt(i))) {
 	            currentValue = romanM.get(s.charAt(i));
-	            nextValue = romanM.get(s.charAt(i + 1));
+	            if (romanM.containsKey(s.charAt(i+1))) {
+	            	nextValue = romanM.get(s.charAt(i + 1));
+	            }else {
+	            	throw new IllegalArgumentException();
+	            }
 	            if(currentValue < nextValue) {
-	            	// Verificamos condiciones de resta
 	            	firstRule(s, i);
 	            	secondRule(s, i);
 	            	thirdRule(s, i);
@@ -166,6 +169,11 @@ public class RomanNumeral {
 	    int result = 0;
 	    int length = s.length();
 	    Map<Character, Integer> romanM = getRomaMap();
+	    
+	    if (s == "") {
+	    	throw new IllegalArgumentException();
+	    }
+	    
 	    s = s.toUpperCase();
 	    
 	    verifyRomanNumeral(s);
@@ -202,7 +210,7 @@ public class RomanNumeral {
 	}
 
 	public static void main(String[] args) {
-	    System.out.println(RomanNumeral.convierte("i"));
+	    System.out.println(RomanNumeral.convierte("XII"));
 	    System.out.println(RomanNumeral.convierte("V"));
 	    System.out.println(RomanNumeral.convierte("XLV"));
 	    System.out.println(RomanNumeral.convierte("CDXCV"));
