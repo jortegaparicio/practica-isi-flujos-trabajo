@@ -57,6 +57,77 @@ public class RomanNumeral {
     }
 	
     /**
+     * Number from type 5 are not allowed to subtract
+     * @param s
+     * @param pos
+     */
+    private static void firstRule(String s, int pos){
+    	if (s.charAt(pos) == 'V' || s.charAt(pos) == 'L' || s.charAt(pos) == 'D' ) { 
+    		throw new IllegalArgumentException();
+    	}
+    }
+    
+    /**
+     * If a number from type one is subtracting, it can appear at the right position of a bigger number
+     * @param s
+     * @param pos
+     */
+    private static void secondRule(String s, int pos) {
+	    Map<Character, Integer> romanM = getRomaMap();
+        int currentValue = romanM.get(s.charAt(pos));
+
+    	if (s.charAt(pos) == 'I' || s.charAt(pos) == 'X' || s.charAt(pos) == 'C' || s.charAt(pos) == 'M' ) { 
+    		String sub = s.substring(pos+1); // Dividimos la cadena a partir del siguiente elemento
+    		if(sub.length()>1) {
+    			if(currentValue <= romanM.get(sub.charAt(1))) {
+    				throw new IllegalArgumentException();
+    			}
+    		}
+    	}
+    }
+    
+    /**
+     * If a number from type one appears subtracting, it is only permitted that its repetition is at the right side and not adyacent
+     * to the subtracting symbol
+     * @param s
+     * @param pos
+     */
+    private static void thirdRule(String s, int pos) {
+	    Map<Character, Integer> romanM = getRomaMap();
+        int currentValue = romanM.get(s.charAt(pos));
+    	if (s.charAt(pos) == 'I' || s.charAt(pos) == 'X' || s.charAt(pos) == 'C' || s.charAt(pos) == 'M' ) {
+    		if(pos>=1) {
+    			if(currentValue == romanM.get(s.charAt(pos - 1))) {
+    				throw new IllegalArgumentException();
+    			}
+    		}
+    	}
+    }
+    
+    /**
+     * Subtraction of a number from type one is only permitted over the first bigger number from type one or five
+     * @param s
+     * @param pos
+     */
+    private static void fourthRule(String s, int pos) {
+    	if (s.charAt(pos) == 'I') {
+    		if (s.charAt(pos+1) != 'V' && s.charAt(pos+1) != 'X') {
+    			throw new IllegalArgumentException();
+    		}
+    	}
+    	if (s.charAt(pos) == 'X') {
+    		if (s.charAt(pos+1) != 'L' && s.charAt(pos+1) != 'C') {
+    			throw new IllegalArgumentException();
+    		}
+    	}
+    	if (s.charAt(pos) == 'C') {
+    		if (s.charAt(pos+1) != 'D' && s.charAt(pos+1) != 'M') {
+    			throw new IllegalArgumentException();
+    		}
+    	}
+    }
+    
+    /**
      * This method verify Roman Numbers' rules
      * @param s
      */
@@ -73,49 +144,10 @@ public class RomanNumeral {
 	            nextValue = romanM.get(s.charAt(i + 1));
 	            if(currentValue < nextValue) {
 	            	// Verificamos condiciones de resta
-	            	
-	            	// Los numeros de tipo 5 no pueden ir restando
-	            	if (s.charAt(i) == 'V' || s.charAt(i) == 'L' || s.charAt(i) == 'D' ) { 
-	            		throw new IllegalArgumentException();
-	            	}
-	            	
-	            	// Si un simbolo de tipo 1 aparece restando, sólo puede aparecer a su derecha un unico simbolo mayor
-	            	if (s.charAt(i) == 'I' || s.charAt(i) == 'X' || s.charAt(i) == 'C' || s.charAt(i) == 'M' ) { 
-	            		String sub = s.substring(i+1); // Dividimos la cadena a partir del siguiente elemento
-	            		if(sub.length()>1) {
-	            			if(currentValue <= romanM.get(sub.charAt(1))) {
-	            				throw new IllegalArgumentException();
-	            			}
-	            		}
-	            	}
-	            	
-	            	//Si un símbolo de tipo 1 que aparece restando se repite, sólo se permite que su repetición esté colocada 
-	            	// a su derecha y que no sea adyacente al símbolo que resta.
-	            	if (s.charAt(i) == 'I' || s.charAt(i) == 'X' || s.charAt(i) == 'C' || s.charAt(i) == 'M' ) {
-	            		if(i>=1) {
-	            			if(currentValue == romanM.get(s.charAt(i - 1))) {
-	            				throw new IllegalArgumentException();
-	            			}
-	            		}
-	            	}
-	            	
-	            	// Sólo se admite la resta de un símbolo de tipo 1 sobre el inmediato mayor de tipo 1 o de tipo 5
-	            	if (s.charAt(i) == 'I') {
-	            		if (s.charAt(i+1) != 'V' && s.charAt(i+1) != 'X') {
-	            			throw new IllegalArgumentException();
-	            		}
-	            	}
-	            	if (s.charAt(i) == 'X') {
-	            		if (s.charAt(i+1) != 'L' && s.charAt(i+1) != 'C') {
-	            			throw new IllegalArgumentException();
-	            		}
-	            	}
-	            	if (s.charAt(i) == 'C') {
-	            		if (s.charAt(i+1) != 'D' && s.charAt(i+1) != 'M') {
-	            			throw new IllegalArgumentException();
-	            		}
-	            	}
-	            	
+	            	firstRule(s, i);
+	            	secondRule(s, i);
+	            	thirdRule(s, i);
+	            	fourthRule(s, i);	            	
 	            }
 	        }else {
 	        	throw new IllegalArgumentException();
@@ -157,7 +189,7 @@ public class RomanNumeral {
 	/**
 	 * This method creates a map with the Roman Numbers and its values
 	 */
-	public static Map<Character,Integer> getRomaMap(){
+	private static Map<Character,Integer> getRomaMap(){
 	    Map<Character,Integer> roman = new HashMap<Character, Integer>();
 	    roman.put('I', 1);
 		roman.put('V', 5);
@@ -170,7 +202,7 @@ public class RomanNumeral {
 	}
 
 	public static void main(String[] args) {
-	    System.out.println(RomanNumeral.convierte("iii"));
+	    System.out.println(RomanNumeral.convierte("i"));
 	    System.out.println(RomanNumeral.convierte("V"));
 	    System.out.println(RomanNumeral.convierte("XLV"));
 	    System.out.println(RomanNumeral.convierte("CDXCV"));
