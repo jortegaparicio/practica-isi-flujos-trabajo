@@ -30,6 +30,14 @@ SUT probado: https://gitlab.etsit.urjc.es/elenabal/practica-isi/-/tree/master/te
    
    El SUT no pasa los tests que contemplan símbolos romanos a priori válidos, pero que incumplen las reglas específicas de los números romanos.
    
+3) EMBOTELLADORA:
+
+ - Error para ejecutar los test:
+    - Nombre incorrecto del método de la clase.
+    
+  - Errores en los tests:
+    - No devuelve el número de botellas pequeñas con una combinación de botellas grandes y pequeñas
+    - Falla cuando se puede rellenar todo con botellas grandes teniendo también botellas pequeñas.
 
 4) MÉTODO BLACK FRIDAY:
  - El mes==11 está mal, porque en java los meses empiezan en 0, por lo que Noviembre es el 10.
